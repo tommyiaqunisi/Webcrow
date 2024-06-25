@@ -1,0 +1,4 @@
+for NTEST in 0
+do
+/usr/lib/jvm/java-8-openjdk-amd64/bin/java -Dfile.encoding=utf-8 -Xmx32000M -classpath "../target/webcrow-0.0.1-SNAPSHOT-jar-with-dependencies.jar" crossword.Main USA config/en_2021.props
+done

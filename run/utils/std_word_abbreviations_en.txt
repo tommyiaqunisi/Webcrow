@@ -1,0 +1,9 @@
+
+È	E'
+É	E'
+iniz.	initials
+abbr.	abbreviation
+abb.	abbreviation
+abbrev.	abbreviation
+…	...
+&	_and_ 

@@ -1,0 +1,225 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% GENERAL properties %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Coordinator CodeName
+
+coord_name:	en_2021_coord
+
+%%%% Database user
+db_user:	ai
+db_pswd:	proverb
+
+%%%% stop_words 
+%%%% (e.g. 'myown_it_idf_stopwords.txt' are italian stopwords obtained by idf)
+stop_words:	utils/myown_en_idf_stopwords.txt
+
+%%%% mapping numbers to words
+%%%% (e.g. 'utils/number_words_it.txt' maps numbers to italian words)
+map_number_words:	utils/number_words_en.txt 
+
+%%%% mapping abbreviations & standard clue spellings
+%%%% (e.g. 'utils/std_word_abbreviations_it.txt' contains std italian abbreviations)
+map_abbrev:	utils/std_word_abbreviations_en.txt
+
+%%%% mapping strange chars to standard answer chars
+%%%% (e.g. 'utils/accent_mapping_it.txt' maps italian accented chars to normal chars)
+%map_chars:	utils/accent_mapping_en.txt
+
+%%%% valid crossword_answer alphabet
+%%%% (e.g. 'utils/cw_answer_alphabet_it.txt' contains italian valid
+cw_answer_alphabet:	utils/cw_answer_alphabet_it.txt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% SAVE ALL WORD LISTS %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+fullSave:	true
+answer_channel:	answers_de
+
+redisURL:	redis-19051.c135.eu-central-1-1.ec2.cloud.redislabs.com
+redisPORT:	19051
+redisPASS:	qWEINRPvCBDXlc5Chj6BhsSInYHzHWwU
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% TEST MODULE ACTIVATION %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+dictioPartialOn:	false
+webSearchAllOn:	true
+monnalisaOn:	true
+
+posteriorOn:	true
+posteriorSpread:	0.9
+posteriorMaxQTermsPerClue:	10000
+posteriorMaxBTermsPerClue:	10000
+posteriorDefMaxTimeSecs:	300
+posteriorIterations:	9
+
+cwdbAllOn:	false
+ruleBasedOn:	false
+implicitOn:	true
+lexiconOn:	false
+dijkstraOn:	false
+morphoAnalysisOn:	false
+
+handle_autoreferential_clues:	yes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% CWDB properties %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% name of the crossword database 
+%%%% ('cwdb2' is for italian crosswords)
+cwdb_name:	cwdb3_en
+
+cwdbSecureClueOn:	true
+cwdbPartialOn:	true
+cwdbExactOn:	true
+
+%%%% dijkstra module source file
+dijkstra_file:	utils/en.dijkstra
+dijkstra_def_max_num_nodes:	1500
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% Merger properties %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% merger parameters file 
+%%%% per ogni nuovo esperto
+merger_params:	config/merger_params_trained_en.txt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% REDIS CONFIGURATION %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+answer_channel:	answers
+redisURL:	redis-19051.c135.eu-central-1-1.ec2.cloud.redislabs.com
+redisPORT:	19051
+redisPASS:	qWEINRPvCBDXlc5Chj6BhsSInYHzHWwU
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% WebSearchModule properties %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%% query URL
+%%%% e.g. for BING https://api.bing.microsoft.com/v7.0/search?q=$_QUERY_$&searchMode=all&queryType=full&count=50&cc=US
+%%%% $_QUERY_$ is a place holder for the encoded query, which is calculated based on the clue
+query_url:	https://api.bing.microsoft.com/v7.0/search?q=$_QUERY_$&searchMode=all&queryType=full&count=50&cc=US
+
+%%%% no words "crossword", "xword" or "clue" in results
+%query_url:	https://api.bing.microsoft.com/v7.0/search?q=$_QUERY_$%20-crossword%20-xword%20-clue&searchMode=all&queryType=full&count=50&cc=US
+
+%%%% options for 'web_search'
+%%%% (WEB_USE=0 SIMUL_USE=1 ACCUM_USE=2)
+web_search:	1
+
+%%%% web-image-path
+%%%% 100 NYT
+%%%%web_img_path:	/home/iaquinta/webcrow/web_img_3/
+%%%% AVXC
+web_img_path:	/home/iaquinta/webcrow/web_img_avcx/
+%%%% WCCI
+%%%%web_img_path:	/home/iaquinta/webcrow-2.0/web_img_wcci/
+
+%%%% use fulldoc search
+web_fulldoc_search:	yes
+
+%%%% proxy options
+proxy:	yes
+proxy_address:	10.0.0.2
+proxy_port:	8080
+
+%%% default number of snippets used
+def_num_snippets:	50
+
+%%%% default number of documents downloaded
+def_num_docs:	50
+
+%%%% extra docs
+extra_docs:	0.0
+
+%%%% max default parallel queries
+def_parallel_queries:	6
+
+%%%% maximum bandwith (in KB)
+max_band:	100000
+
+%%%% timeout properties
+single_doc_timeout:	8
+single_query_timeout:	500
+module_timeout:	1000
+
+%%%% neural network used for confidence estimation
+% conf_estimator:	train/neural_estimator/20in10hu_2.net
+
+%%%% DB used for idf
+%%%% (e.g. 'termdf_it' is for italian)
+%%%% TO be checked
+df_dbname:	termdf_en
+
+
+%%%% language used for querying Google 
+%%%% (e.g. 'lang_it', 'lang_en') 
+query_language:	lang_en
+
+%%%% flag for using the Inits search (default: false)
+%web_inits_search:	true
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% Dictio properties %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% name of the lexicon database 
+%%%% ('lexicon_it' is the italian lexicon)
+lexicon_db_name:	lexicon_en
+
+%%%% name of the dictionary database 
+%%%% ('dictio_with_examples_it' is the italian dictionary)
+dictio_db_name:	dictio_with_examples_en
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Implicit Module Properties %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% name of the file for n-gram statistics
+%%%% ('cwdb.tetra' is the italian tetragram file)
+n_gram_stats_sols:	utils/en_sols.4grams
+#n_gram_stats_sols:	utils/cwdb_it.tetra
+#n_gram_stats_sols:	utils/it_sols.4grams
+#n_gram_stats_sols:	utils/en_sols.4grams
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% NLP properties %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% name of the lemmatizer database 
+%%%% (morph_it is for italian)
+lemmatizer_db_name:	morph_en
+
+%%%% pos tagger command path
+pos_tagger_cmd:	train/tree_tagger/linux/bin/tree-tagger
+pos_tagger_model:	train/tree_tagger/linux/lib/web_italian.par
+pos_tagger_tag_mapping:	train/tree_tagger/tag_map_en.txt
+
+%%%% morpho classifier
+%morpho_classifier_cmd:	train/clue_classifier/linux/svm_multiclass_classify
+%morpho_classifier_model:	train/clue_classifier/linux/italian_model
+%morpho_classifier_lw:	train/clue_classifier/linux/it_out.lw
+%morpho_classifier_lt:	train/clue_classifier/linux/it_out.lt
+%morpho_classifier_lc:	train/clue_classifier/linux/it_out.lc
+%morpho_classifier_data_parser:	train/clue_classifier/linux/class_v4.pl
+%morpho_classifier_tag_mapping:	train/clue_classifier/linux/ita_morpho_classes.txt
+morpho_classifier_cmd:	train/clue_classifier/linux/svm_multiclass_classify_2
+morpho_classifier_model:	train/clue_classifier/linux/model2
+morpho_classifier_lw:	train/clue_classifier/linux/gl2.lw
+morpho_classifier_lt:	train/clue_classifier/linux/gl2.lt
+morpho_classifier_lc:	train/clue_classifier/linux/gl2.lc
+morpho_classifier_data_parser:	train/clue_classifier/linux/class_v4.pl
+morpho_classifier_tag_mapping:	train/clue_classifier/linux/morfo_classes2.txt
+
+
+
+%%%% number of nodes searched by wordnet module
+wordnet_def_max_num_nodes:	200
+
+%%%% language used by WordNet (e.g. 'lang_it' or 'lang_en' or 'lang_all')
+wordnet_lang:	lang_en
